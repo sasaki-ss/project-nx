@@ -1,0 +1,2 @@
+# nx
+hello nx project!
