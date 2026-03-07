@@ -1,0 +1,35 @@
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.VC.db
+*.VC.opendb
+*.suo
+*.user
+*.userosscache
+
+# Build results
+Debug/
+Release/
+x64/
+x86/
+build/
+out/
+
+# Intermediate
+*.obj
+*.pdb
+*.ilk
+*.log
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# OS
+.DS_Store
+Thumbs.db
