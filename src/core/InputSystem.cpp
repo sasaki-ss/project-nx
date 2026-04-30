@@ -36,7 +36,7 @@ void InputSystem::update() {
 		if (state && prev_st == KeyState::Released) {
 			current_state[key] = KeyState::Pressed;
 		}
-		// Down継続は暗黙維持のため遷移タイミングのみ更新する
+		// Down邯咏ｶ壹�ｯ證鈴ｻ咏ｶｭ謖√�ｮ縺溘ａ驕ｷ遘ｻ繧ｿ繧､繝溘Φ繧ｰ縺ｮ縺ｿ譖ｴ譁ｰ縺吶ｋ
 		else if (state && prev_st == KeyState::Pressed) {
 			current_state[key] = KeyState::Down;
 		}
