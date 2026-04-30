@@ -56,11 +56,7 @@ void DxLibInput::update() {
 	GetHitKeyStateAll(key_state_buffer.data());
 
 	for (const auto& key_map : KEY_MAPPINGS) {
-		bool is_pressed = false;
-		if (key_state_buffer.at(key_map.dx_key) != 0) {
-			is_pressed = true;
-		}
-
+		bool is_pressed = key_state_buffer.at(key_map.dx_key) != 0;
 		key_state[key_map.core_key] = is_pressed;
 	}
 }
