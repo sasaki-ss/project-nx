@@ -10,7 +10,7 @@ struct KeyMapping {
 };
 
 static constexpr int DX_KEY_NUM_ALL = 256;
-static constexpr int REGST_KEY = 26;
+static constexpr int REGST_KEY = static_cast<int>(Key::Count);
 static constexpr std::array<KeyMapping, REGST_KEY> KEY_MAPPINGS = { {
 	{Key::A, KEY_INPUT_A},
 	{Key::B, KEY_INPUT_B},

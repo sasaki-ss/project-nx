@@ -34,6 +34,7 @@ enum class Key {
 	X,
 	Y,
 	Z,
+	Count
 };
 
 enum class KeyState {

@@ -5,21 +5,18 @@ namespace core {
 namespace input {
 
 bool InputSystem::init() {
-	current_state[Key::A] = KeyState::Released;
-	previous_state[Key::A] = KeyState::Released;
-	current_state[Key::D] = KeyState::Released;
-	previous_state[Key::D] = KeyState::Released;
-	current_state[Key::S] = KeyState::Released;
-	previous_state[Key::S] = KeyState::Released;
-	current_state[Key::W] = KeyState::Released;
-	previous_state[Key::W] = KeyState::Released;
+	int key_count = static_cast<int>(Key::Count);
+	for (int i = 0; i < key_count; ++i) {
+		current_state[static_cast<Key>(i)] = KeyState::Released;
+		previous_state[static_cast<Key>(i)] = KeyState::Released;
+	}
 
 	return true;
 }
 
 void InputSystem::set_input_source(std::unique_ptr<InputBase> input_module) {
 	this->input_module = std::move(input_module);
-	//this->input_module->init();
+	this->input_module->init();
 }
 
 void InputSystem::update() {
