@@ -63,8 +63,6 @@ bool InputSystem::get_input(Key key, KeyState state) {
 }
 
 auto InputSystem::get_key_state(Key key, key_state_t& state_map) -> std::optional<KeyState> {
-	KeyState key_state;
-
 	auto it = state_map.find(key);
 	if (it != state_map.end()) {
 		return it->second;
