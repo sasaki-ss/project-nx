@@ -15,7 +15,7 @@ public:
 	virtual ~InputBase() = default;
 	virtual bool init() = 0;
 	virtual void update() = 0;
-	auto get_key_state() -> std::unordered_map<Key, bool, KeyHash> {
+	auto get_key_state() -> const std::unordered_map<Key, bool, KeyHash>& {
 		return key_state;
 	}
 protected:
