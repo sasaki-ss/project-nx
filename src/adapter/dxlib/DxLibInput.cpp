@@ -1,4 +1,4 @@
-#include "DxLibInput.h"
+﻿#include "DxLibInput.h"
 
 #include <DxLib.h>
 
@@ -10,8 +10,8 @@ struct KeyMapping {
 };
 
 static constexpr int DX_KEY_NUM_ALL = 256;
-static constexpr int REGST_KEY = static_cast<int>(Key::Count);
-static constexpr std::array<KeyMapping, REGST_KEY> KEY_MAPPINGS = { {
+static constexpr int REGISTERED_KEY_COUNT = static_cast<int>(Key::Count);
+static constexpr std::array<KeyMapping, REGISTERED_KEY_COUNT> KEY_MAPPINGS = { {
 	{Key::A, KEY_INPUT_A},
 	{Key::B, KEY_INPUT_B},
 	{Key::C, KEY_INPUT_C},
