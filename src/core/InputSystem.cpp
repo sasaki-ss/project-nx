@@ -1,10 +1,11 @@
-#include "InputSystem.h"
+﻿#include "InputSystem.h"
 
 namespace nx {
 namespace core {
 namespace input {
 
 bool InputSystem::init() {
+	// Keyは0からの連番である前提
 	int key_count = static_cast<int>(Key::Count);
 	for (int i = 0; i < key_count; ++i) {
 		current_state[static_cast<Key>(i)] = KeyState::Released;
@@ -14,9 +15,12 @@ bool InputSystem::init() {
 	return true;
 }
 
-void InputSystem::set_input_source(std::unique_ptr<InputBase> input_module) {
+bool InputSystem::set_input_source(std::unique_ptr<InputBase> input_module) {
+	if (input_module == nullptr) {
+		return false;
+	}
 	this->input_module = std::move(input_module);
-	this->input_module->init();
+	return this->input_module->init();
 }
 
 void InputSystem::update() {
