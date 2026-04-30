@@ -14,8 +14,6 @@ public:
 	~DxLibInput()override = default;
 	bool init()override;
 	void update()override;
-private:
-	void update_key_state(nx::core::input::Key key, int state);
 };
 
 }
