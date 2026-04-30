@@ -1,4 +1,4 @@
-﻿#include "DxLibInput.h"
+#include "DxLibInput.h"
 
 #include <DxLib.h>
 
