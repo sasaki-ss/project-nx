@@ -45,6 +45,8 @@ static constexpr std::array<KeyMapping, REGISTERED_KEY_COUNT> KEY_MAPPINGS = { {
 	{Key::ArrowDown, KEY_INPUT_DOWN},
 	{Key::ArrowLeft, KEY_INPUT_LEFT},
 	{Key::ArrowRight, KEY_INPUT_RIGHT},
+	{Key::LShift, KEY_INPUT_LSHIFT},
+	{Key::RShift, KEY_INPUT_RSHIFT},
 	{Key::LCtrl, KEY_INPUT_LCONTROL},
 	{Key::RCtrl, KEY_INPUT_RCONTROL},
 } };

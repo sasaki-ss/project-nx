@@ -41,6 +41,8 @@ enum class Key {
 	ArrowDown,
 	ArrowLeft,
 	ArrowRight,
+	LShift,
+	RShift,
 	LCtrl,
 	RCtrl,
 	Count
