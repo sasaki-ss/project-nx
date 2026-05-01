@@ -20,21 +20,19 @@ class IScene;
 
 class SceneManager final : public ISceneDirector {
 public:
-	typedef std::function<std::unique_ptr<IScene>(object::Component*)> scene_creator_t;
-
 	SceneManager(object::Component* component);
 	~SceneManager();
 	bool init();
 	void end();
 	void update();
 	void draw();
-	void set_scene_creator(uint32_t scene_id, scene_creator_t scene_creator);
 
-	virtual void open(uint32_t scene_id)override;
-	virtual void go_to(uint32_t scene_id)override;
-	virtual void back()override;
-	virtual void scene_change(uint32_t scene_id, SceneChangeMode mode)override;
-	virtual void scene_change(SceneChangeMode mode)override;
+	void open(uint32_t scene_id)override;
+	void go_to(uint32_t scene_id)override;
+	void back()override;
+	void scene_change(uint32_t scene_id, SceneChangeMode mode)override;
+	void scene_change(SceneChangeMode mode)override;
+	void set_scene_creator(uint32_t scene_id, scene_creator_t scene_creator)override;
 private:
 	struct PendingSceneChange {
 		SceneChangeMode mode;
