@@ -1,4 +1,4 @@
-#ifndef CORE_INPUT_INPUTSTATE_H
+﻿#ifndef CORE_INPUT_INPUTSTATE_H
 #define CORE_INPUT_INPUTSTATE_H
 
 #include <type_traits>
@@ -34,6 +34,15 @@ enum class Key {
 	X,
 	Y,
 	Z,
+	Space,
+	Enter,
+	Esc,
+	ArrowUp,
+	ArrowDown,
+	ArrowLeft,
+	ArrowRight,
+	LCtrl,
+	RCtrl,
 	Count
 };
 

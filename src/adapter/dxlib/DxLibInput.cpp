@@ -1,4 +1,4 @@
-#include "DxLibInput.h"
+﻿#include "DxLibInput.h"
 
 #include <DxLib.h>
 
@@ -38,6 +38,15 @@ static constexpr std::array<KeyMapping, REGISTERED_KEY_COUNT> KEY_MAPPINGS = { {
 	{Key::X, KEY_INPUT_X},
 	{Key::Y, KEY_INPUT_Y},
 	{Key::Z, KEY_INPUT_Z},
+	{Key::Space, KEY_INPUT_SPACE},
+	{Key::Enter, KEY_INPUT_RETURN},
+	{Key::Esc, KEY_INPUT_ESCAPE},
+	{Key::ArrowUp,KEY_INPUT_UP},
+	{Key::ArrowDown, KEY_INPUT_DOWN},
+	{Key::ArrowLeft, KEY_INPUT_LEFT},
+	{Key::ArrowRight, KEY_INPUT_RIGHT},
+	{Key::LCtrl, KEY_INPUT_LCONTROL},
+	{Key::RCtrl, KEY_INPUT_RCONTROL},
 } };
 
 namespace adapter {
