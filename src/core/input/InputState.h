@@ -57,7 +57,7 @@ enum class Mouse {
 	Count
 };
 
-enum class KeyState {
+enum class InputState {
 	Pressed, 
 	Down,
 	Released

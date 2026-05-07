@@ -12,16 +12,17 @@ namespace input {
 
 class InputSystem final {
 public:
-	typedef std::unordered_map<Key, KeyState, KeyHash> key_state_t;
+	typedef std::unordered_map<Key, InputState, KeyHash> key_state_t;
 
 	InputSystem() = default;
 	~InputSystem() = default;
 	bool init();
 	bool set_input_source(std::unique_ptr<InputBase> input_module);
 	void update();
-	bool get_input(Key key, KeyState state);
+	bool get_input(Key key, InputState state);
+	bool get_input(Mouse mouse, InputState state);
 private:
-	 auto get_key_state(Key key, key_state_t& state_map) -> std::optional<KeyState>;
+	 auto get_key_state(Key key, key_state_t& state_map) -> std::optional<InputState>;
 
 	std::unique_ptr<InputBase> input_module;
 	key_state_t current_state;

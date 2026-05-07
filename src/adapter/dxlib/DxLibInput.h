@@ -1,9 +1,9 @@
-#ifndef ADAPTER_DXLIB_DXLIBINPUT_H
+﻿#ifndef ADAPTER_DXLIB_DXLIBINPUT_H
 #define ADAPTER_DXLIB_DXLIBINPUT_H
 
 #include <array>
 
-#include "core/InputBase.h"
+#include "core/input/InputBase.h"
 
 namespace adapter {
 namespace dxlib {
