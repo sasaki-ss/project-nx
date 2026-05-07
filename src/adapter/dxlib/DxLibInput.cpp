@@ -3,10 +3,16 @@
 #include <DxLib.h>
 
 using nx::core::input::Key;
+using nx::core::input::Mouse;
 
 struct KeyMapping {
 	Key core_key;
 	int dx_key;
+};
+
+struct MouseMapping {
+	Mouse core_mouse;
+	int dx_mouse;
 };
 
 static constexpr int DX_KEY_NUM_ALL = 256;
@@ -51,6 +57,15 @@ static constexpr std::array<KeyMapping, REGISTERED_KEY_COUNT> KEY_MAPPINGS = { {
 	{Key::RCtrl, KEY_INPUT_RCONTROL},
 } };
 
+static constexpr int REGISTERED_MOUSE_COUNT = static_cast<int>(Key::Count);
+static constexpr std::array<MouseMapping, REGISTERED_MOUSE_COUNT> MOUSE_MAPPINGS = { {
+	{Mouse::Left, MOUSE_INPUT_LEFT},
+	{Mouse::Right, MOUSE_INPUT_RIGHT},
+	{Mouse::Mid, MOUSE_INPUT_MIDDLE},
+	{Mouse::Exp1, MOUSE_INPUT_4},
+	{Mouse::Exp2, MOUSE_INPUT_5},
+} };
+
 namespace adapter {
 namespace dxlib {
 
@@ -63,12 +78,21 @@ bool DxLibInput::init() {
 }
 
 void DxLibInput::update() {
+	// キーボード
 	std::array<char, DX_KEY_NUM_ALL> key_state_buffer{};
 	GetHitKeyStateAll(key_state_buffer.data());
 
 	for (const auto& key_map : KEY_MAPPINGS) {
 		bool is_pressed = key_state_buffer.at(key_map.dx_key) != 0;
 		key_state[key_map.core_key] = is_pressed;
+	}
+
+	// マウス
+	GetMousePoint(&mouse_x, &mouse_y);
+	int mouse_input = GetMouseInput();
+	for (const auto& mouse_map : MOUSE_MAPPINGS) {
+		bool is_pressed = (mouse_input & mouse_map.dx_mouse) != 0;
+		mouse_state[mouse_map.core_mouse] = is_pressed;
 	}
 }
 
