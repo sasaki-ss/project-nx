@@ -21,7 +21,7 @@ bool InputSystem::init() {
 }
 
 bool InputSystem::set_input_source(std::unique_ptr<InputBase> input_module) {
-	if (input_module == nullptr) {
+	if (!input_module) {
 		return false;
 	}
 	this->input_module = std::move(input_module);
@@ -29,7 +29,7 @@ bool InputSystem::set_input_source(std::unique_ptr<InputBase> input_module) {
 }
 
 void InputSystem::update() {
-	if (input_module == nullptr) {
+	if (!input_module) {
 		return;
 	}
 
@@ -49,7 +49,9 @@ bool InputSystem::get_input(Mouse mouse, InputState state) {
 	return mouse_dev->get_input(mouse, state);
 }
 
-const MousePoint& InputSystem::get_mouse_point() {
+auto InputSystem::get_mouse_point() -> const std::optional<MousePoint>& {
+	if (!input_module)return std::nullopt;
+
 	return input_module->get_mouse_point();
 }
 
