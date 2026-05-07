@@ -51,9 +51,9 @@ enum class Key {
 enum class Mouse {
 	Left,
 	Right,
-	Mid,
-	Exp1,
-	Exp2,
+	Middle,
+	Extra1,
+	Extra2,
 	Count
 };
 

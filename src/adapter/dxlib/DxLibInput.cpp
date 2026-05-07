@@ -61,9 +61,9 @@ static constexpr int REGISTERED_MOUSE_COUNT = static_cast<int>(Mouse::Count);
 static constexpr std::array<MouseMapping, REGISTERED_MOUSE_COUNT> MOUSE_MAPPINGS = { {
 	{Mouse::Left, MOUSE_INPUT_LEFT},
 	{Mouse::Right, MOUSE_INPUT_RIGHT},
-	{Mouse::Mid, MOUSE_INPUT_MIDDLE},
-	{Mouse::Exp1, MOUSE_INPUT_4},
-	{Mouse::Exp2, MOUSE_INPUT_5},
+	{Mouse::Middle, MOUSE_INPUT_MIDDLE},
+	{Mouse::Extra1, MOUSE_INPUT_4},
+	{Mouse::Extra2, MOUSE_INPUT_5},
 } };
 
 namespace adapter {
