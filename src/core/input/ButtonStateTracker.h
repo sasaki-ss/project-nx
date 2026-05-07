@@ -53,6 +53,7 @@ bool ButtonStateTracker<T, Hash>::init() {
 
 template <class T, typename Hash>
 void ButtonStateTracker<T, Hash>::update(const raw_state_t& raw_state) {
+	// raw_state は管理対象の全入力を毎フレーム含む前提
 	for (auto& [kind, state] : raw_state) {
 		auto prev_st = get_input_state_impl(kind, previous_state);
 		if (!prev_st.has_value())continue;
