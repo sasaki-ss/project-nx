@@ -57,7 +57,7 @@ static constexpr std::array<KeyMapping, REGISTERED_KEY_COUNT> KEY_MAPPINGS = { {
 	{Key::RCtrl, KEY_INPUT_RCONTROL},
 } };
 
-static constexpr int REGISTERED_MOUSE_COUNT = static_cast<int>(Key::Count);
+static constexpr int REGISTERED_MOUSE_COUNT = static_cast<int>(Mouse::Count);
 static constexpr std::array<MouseMapping, REGISTERED_MOUSE_COUNT> MOUSE_MAPPINGS = { {
 	{Mouse::Left, MOUSE_INPUT_LEFT},
 	{Mouse::Right, MOUSE_INPUT_RIGHT},
