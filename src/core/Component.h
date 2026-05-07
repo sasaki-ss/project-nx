@@ -1,7 +1,7 @@
 ﻿#ifndef CORE_OBJECT_COMPONENT
 #define CORE_OBJECT_COMPONENT
 
-#include "InputSystem.h"
+#include "core/input/InputSystem.h"
 
 namespace nx {
 namespace core {

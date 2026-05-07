@@ -1,4 +1,4 @@
-﻿#include "InputSystem.h"
+﻿#include "core/input/InputSystem.h"
 
 namespace nx {
 namespace core {
