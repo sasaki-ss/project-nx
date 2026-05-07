@@ -23,7 +23,7 @@ public:
 	bool get_input(Key key, InputState state);
 	bool get_input(Mouse mouse, InputState state);
 
-	auto get_mouse_point() -> const std::optional<MousePoint>;
+	auto get_mouse_point() -> std::optional<MousePoint>;
 private:
 	std::unique_ptr<KeyboardDevice> keyboard_dev;
 	std::unique_ptr<MouseDevice> mouse_dev;

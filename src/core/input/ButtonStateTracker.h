@@ -29,7 +29,7 @@ public:
 	void set_count(const int count) {
 		this->count = count;
 	}
-	auto get_input_state(T kind) -> std::optional<InputState> {
+	auto get_input_state(T kind)const -> std::optional<InputState> {
 		return get_input_state_impl(kind, current_state);
 	}
 	
@@ -37,7 +37,7 @@ private:
 	int count;
 	input_state_t current_state;
 	input_state_t previous_state;
-	auto get_input_state_impl(T kind, input_state_t& state_map)const -> std::optional<InputState>;
+	auto get_input_state_impl(T kind, const input_state_t& state_map)const -> std::optional<InputState>;
 };
 
 template <class T, typename Hash>
@@ -76,7 +76,7 @@ void ButtonStateTracker<T, Hash>::update(const raw_state_t& raw_state) {
 }
 
 template <class T, typename Hash>
-auto ButtonStateTracker<T, Hash>::get_input_state_impl(T kind, input_state_t& state_map)const -> std::optional<InputState> {
+auto ButtonStateTracker<T, Hash>::get_input_state_impl(T kind, const input_state_t& state_map)const -> std::optional<InputState> {
 	auto it = state_map.find(kind);
 	if (it != state_map.end()) {
 		return it->second;

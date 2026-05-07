@@ -49,7 +49,7 @@ bool InputSystem::get_input(Mouse mouse, InputState state) {
 	return mouse_dev->get_input(mouse, state);
 }
 
-auto InputSystem::get_mouse_point() -> const std::optional<MousePoint> {
+auto InputSystem::get_mouse_point() -> std::optional<MousePoint> {
 	if (!input_module)return std::nullopt;
 
 	return input_module->get_mouse_point();
