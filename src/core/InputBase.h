@@ -1,4 +1,4 @@
-#ifndef ADAPTER_INPUT_INPUTBASE_H
+﻿#ifndef ADAPTER_INPUT_INPUTBASE_H
 #define ADAPTER_INPUT_INPUTBASE_H
 
 #include <unordered_map>
@@ -20,6 +20,10 @@ public:
 	}
 protected:
 	std::unordered_map<Key, bool, KeyHash> key_state;
+
+	int mouse_x;
+	int mouse_y;
+	std::unordered_map<Mouse, bool, MouseHash> mouse_state;
 };
 
 }

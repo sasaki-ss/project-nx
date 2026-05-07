@@ -48,6 +48,15 @@ enum class Key {
 	Count
 };
 
+enum class Mouse {
+	Left,
+	Right,
+	Mid,
+	Exp1,
+	Exp2,
+	Count
+};
+
 enum class KeyState {
 	Pressed, 
 	Down,
@@ -58,6 +67,13 @@ struct KeyHash {
 	std::size_t operator()(Key key)const noexcept {
 		using Underlying = std::underlying_type_t<Key>;
 		return static_cast<std::size_t>(static_cast<Underlying>(key));
+	}
+};
+
+struct MouseHash {
+	std::size_t operator()(Mouse mouse)const noexcept {
+		using Underlying = std::underlying_type_t<Mouse>;
+		return static_cast<std::size_t>(static_cast<Underlying>(mouse));
 	}
 };
 

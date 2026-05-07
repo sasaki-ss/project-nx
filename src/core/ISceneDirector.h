@@ -1,5 +1,7 @@
-#ifndef CORE_SCENE_INTERFACE_SCENE_DIRECTOR
+﻿#ifndef CORE_SCENE_INTERFACE_SCENE_DIRECTOR
 #define CORE_SCENE_INTERFACE_SCENE_DIRECTOR
+
+#include <cstdint>
 
 namespace nx {
 namespace core {
