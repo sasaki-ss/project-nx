@@ -18,11 +18,13 @@ public:
 	auto get_key_state() -> const std::unordered_map<Key, bool, KeyHash>& {
 		return key_state;
 	}
+	auto get_mouse_state() -> const std::unordered_map<Mouse, bool, MouseHash>& {
+		return mouse_state;
+	}
 protected:
 	std::unordered_map<Key, bool, KeyHash> key_state;
 
-	int mouse_x;
-	int mouse_y;
+	MousePoint mouse_point;
 	std::unordered_map<Mouse, bool, MouseHash> mouse_state;
 };
 

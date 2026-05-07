@@ -77,6 +77,11 @@ struct MouseHash {
 	}
 };
 
+struct MousePoint {
+	int x;
+	int y;
+};
+
 }
 }
 }

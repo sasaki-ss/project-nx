@@ -88,7 +88,7 @@ void DxLibInput::update() {
 	}
 
 	// マウス
-	GetMousePoint(&mouse_x, &mouse_y);
+	GetMousePoint(&mouse_point.x, &mouse_point.y);
 	int mouse_input = GetMouseInput();
 	for (const auto& mouse_map : MOUSE_MAPPINGS) {
 		bool is_pressed = (mouse_input & mouse_map.dx_mouse) != 0;
