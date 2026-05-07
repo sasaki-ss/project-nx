@@ -1,8 +1,14 @@
 ﻿#include "core/input/InputSystem.h"
 
+#include "KeyboardDevice.h"
+#include "MouseDevice.h"
+
 namespace nx {
 namespace core {
 namespace input {
+
+InputSystem::InputSystem() = default;
+InputSystem::~InputSystem() = default;
 
 bool InputSystem::init() {
 	// Keyは0からの連番である前提

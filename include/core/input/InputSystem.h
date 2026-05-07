@@ -10,19 +10,25 @@ namespace nx {
 namespace core {
 namespace input {
 
+class KeyboardDevice;
+class MouseDevice;
+
 class InputSystem final {
 public:
 	typedef std::unordered_map<Key, InputState, KeyHash> key_state_t;
 
-	InputSystem() = default;
-	~InputSystem() = default;
+	InputSystem();
+	~InputSystem();
 	bool init();
 	bool set_input_source(std::unique_ptr<InputBase> input_module);
 	void update();
 	bool get_input(Key key, InputState state);
 	bool get_input(Mouse mouse, InputState state);
 private:
-	 auto get_key_state(Key key, key_state_t& state_map) -> std::optional<InputState>;
+	std::unique_ptr<KeyboardDevice> keyboard_dev;
+	std::unique_ptr<MouseDevice> mouse_dev;
+
+	auto get_key_state(Key key, key_state_t& state_map) -> std::optional<InputState>;
 
 	std::unique_ptr<InputBase> input_module;
 	key_state_t current_state;
