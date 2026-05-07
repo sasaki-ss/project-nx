@@ -16,7 +16,11 @@ public:
 	typedef std::unordered_map<T, InputState, Hash> input_state_t;
 	typedef std::unordered_map<T, bool, Hash> raw_state_t;
 
-	ButtonStateTracker() = default;
+	ButtonStateTracker() :
+		count(0) {
+
+	}
+
 	~ButtonStateTracker() = default;
 	bool init();
 	void update(const raw_state_t& raw_state);
