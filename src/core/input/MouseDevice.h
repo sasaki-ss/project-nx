@@ -15,7 +15,7 @@ public:
 	bool init();
 	void update(const ButtonStateTracker<Mouse, MouseHash>::raw_state_t& raw_state);
 
-	bool get_input(Mouse key, InputState state);
+	bool get_input(Mouse mouse, InputState state);
 private:
 	ButtonStateTracker<Mouse, MouseHash> btn_tracker;
 };
