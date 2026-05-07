@@ -73,6 +73,8 @@ bool DxLibInput::init() {
 	for (const auto& key_map : KEY_MAPPINGS) {
 		key_state.try_emplace(key_map.core_key, false);
 	}
+	mouse_point.x = 0;
+	mouse_point.y = 0;
 
 	return true;
 }
