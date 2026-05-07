@@ -15,8 +15,6 @@ class MouseDevice;
 
 class InputSystem final {
 public:
-	typedef std::unordered_map<Key, InputState, KeyHash> key_state_t;
-
 	InputSystem();
 	~InputSystem();
 	bool init();
@@ -28,11 +26,7 @@ private:
 	std::unique_ptr<KeyboardDevice> keyboard_dev;
 	std::unique_ptr<MouseDevice> mouse_dev;
 
-	auto get_key_state(Key key, key_state_t& state_map) -> std::optional<InputState>;
-
 	std::unique_ptr<InputBase> input_module;
-	key_state_t current_state;
-	key_state_t previous_state;
 };
 
 

@@ -11,12 +11,11 @@ InputSystem::InputSystem() = default;
 InputSystem::~InputSystem() = default;
 
 bool InputSystem::init() {
-	// Keyは0からの連番である前提
-	int key_count = static_cast<int>(Key::Count);
-	for (int i = 0; i < key_count; ++i) {
-		current_state[static_cast<Key>(i)] = InputState::Released;
-		previous_state[static_cast<Key>(i)] = InputState::Released;
-	}
+	keyboard_dev = std::make_unique<KeyboardDevice>();
+	mouse_dev = std::make_unique<MouseDevice>();
+
+	if (keyboard_dev->init() == false)return false;
+	if (mouse_dev->init() == false)return false;
 
 	return true;
 }
@@ -35,52 +34,19 @@ void InputSystem::update() {
 	}
 
 	input_module->update();
-	auto key_states = input_module->get_key_state();
-	for (auto& [key, state] : key_states) {
-		auto prev_st = get_key_state(key, previous_state);
-		if (!prev_st.has_value())continue;
-
-		if (state && prev_st == InputState::Released) {
-			current_state[key] = InputState::Pressed;
-		}
-		// Down継続は暗黙維持のため遷移タイミングのみ更新する
-		else if (state && prev_st == InputState::Pressed) {
-			current_state[key] = InputState::Down;
-		}
-		else if (!state && (prev_st == InputState::Pressed || prev_st == InputState::Down)) {
-			current_state[key] = InputState::Released;
-		}
-
-		auto cur_st = get_key_state(key, current_state);
-		if (!cur_st.has_value())continue;
-		previous_state[key] = *cur_st;
-	}
+	keyboard_dev->update(input_module->get_key_state());
+	mouse_dev->update(input_module->get_mouse_state());
 }
 
 bool InputSystem::get_input(Key key, InputState state) {
-	auto key_state = get_key_state(key, current_state);
-	if (!key_state.has_value()) {
-		return false;
-	}
+	if (!keyboard_dev)return false;
 
-	if (*key_state == state) {
-		return true;
-	}
-
-	return false;
+	return keyboard_dev->get_input(key, state);
 }
 
 bool InputSystem::get_input(Mouse mouse, InputState state) {
-	return false;
-}
-
-auto InputSystem::get_key_state(Key key, key_state_t& state_map) -> std::optional<InputState> {
-	auto it = state_map.find(key);
-	if (it != state_map.end()) {
-		return it->second;
-	}
-
-	return std::nullopt;
+	if (!mouse_dev)return false;
+	return mouse_dev->get_input(mouse, state);
 }
 
 }

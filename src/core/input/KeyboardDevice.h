@@ -1,7 +1,8 @@
 ﻿#ifndef CORE_INPUT_KEYBOARDDEVICE_H
 #define CORE_INPUT_KEYBOARDDEVICE_H
 
-#include <unordered_map>
+#include "core/input/InputState.h"
+#include "ButtonStateTracker.h"
 
 namespace nx {
 namespace core {
@@ -12,9 +13,12 @@ public:
 	KeyboardDevice() = default;
 	~KeyboardDevice() = default;
 	bool init();
-	void update();
-private:
+	void update(const ButtonStateTracker<Key, KeyHash>::raw_state_t& raw_state);
 
+	bool get_input(Key key, InputState state);
+	
+private:
+	ButtonStateTracker<Key, KeyHash> btn_tracker;
 };
 
 }
