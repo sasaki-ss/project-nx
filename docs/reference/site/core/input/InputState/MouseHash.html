@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>nx::core::input::MouseHash - NX Reference</title>
+  <link rel="stylesheet" href="../../../assets/reference.css" />
+</head>
+<body>
+  <div class="layout"><aside class="sidebar"><div class="sidebar-header"><div class="sidebar-title"><a href="../../../index.html">NX Reference</a></div><button id="theme-toggle" class="theme-toggle" type="button">Dark</button></div><nav class="sidebar-nav"><ul><li><details><summary>Adapter</summary><ul><li><details><summary><a href="../../../adapter/dxlib/index.html">dxlib</a></summary><ul><li><details><summary><a href="../../../adapter/dxlib/DxLibInput.html"><span class="sidebar-namespace">adapter::dxlib::</span><span class="sidebar-symbol">DxLibInput</span></a></summary><ul><li><a href="../../../adapter/dxlib/DxLibInput/ctor.html">(constructor)</a></li><li><a href="../../../adapter/dxlib/DxLibInput/dtor.html">(destructor)</a></li><li><a href="../../../adapter/dxlib/DxLibInput/init.html">init</a></li><li><a href="../../../adapter/dxlib/DxLibInput/update.html">update</a></li></ul></details></li></ul></details></li></ul></details></li><li><details open class="current-branch"><summary>Core</summary><ul><li><details open class="current-branch"><summary><a href="../../../core/input/index.html">input</a></summary><ul><li><details><summary><a href="../../../core/input/InputBase.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputBase</span></a></summary><ul><li><a href="../../../core/input/InputBase/ctor.html">(constructor)</a></li><li><a href="../../../core/input/InputBase/dtor.html">(destructor)</a></li><li><a href="../../../core/input/InputBase/get_key_state.html">get_key_state</a></li><li><a href="../../../core/input/InputBase/get_mouse_point.html">get_mouse_point</a></li><li><a href="../../../core/input/InputBase/get_mouse_state.html">get_mouse_state</a></li><li><a href="../../../core/input/InputBase/init.html">init</a></li><li><a href="../../../core/input/InputBase/update.html">update</a></li></ul></details></li><li><details open class="current-branch"><summary><a href="../../../core/input/InputState.html">InputState</a></summary><ul><li><a href="../../../core/input/InputState/InputState.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputState</span></a></li><li><a href="../../../core/input/InputState/Key.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">Key</span></a></li><li><a href="../../../core/input/InputState/KeyHash.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">KeyHash</span></a></li><li><a href="../../../core/input/InputState/Mouse.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">Mouse</span></a></li><li><a href="../../../core/input/InputState/MouseHash.html" class="active"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">MouseHash</span></a></li><li><a href="../../../core/input/InputState/MousePoint.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">MousePoint</span></a></li></ul></details></li><li><details><summary><a href="../../../core/input/InputSystem.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputSystem</span></a></summary><ul><li><a href="../../../core/input/InputSystem/ctor.html">(constructor)</a></li><li><a href="../../../core/input/InputSystem/dtor.html">(destructor)</a></li><li><a href="../../../core/input/InputSystem/get_input_key.html">get_input_key</a></li><li><a href="../../../core/input/InputSystem/get_input_mouse.html">get_input_mouse</a></li><li><a href="../../../core/input/InputSystem/get_mouse_point.html">get_mouse_point</a></li><li><a href="../../../core/input/InputSystem/init.html">init</a></li><li><a href="../../../core/input/InputSystem/set_input_source.html">set_input_source</a></li><li><a href="../../../core/input/InputSystem/update.html">update</a></li></ul></details></li></ul></details></li></ul></details></li></ul></nav></aside><main class="content"><div class="api-layer">core/input</div><div class="api-category api-category-struct">struct</div><h1 class="api-title"><span class="title-namespace">nx::core::input::</span><span class="title-name">MouseHash</span></h1><pre class="top-definition"><code class="language-cpp"><span class="tok-kw">struct</span> MouseHash {
+    <span class="tok-pre">std</span>::size_t operator()(Mouse mouse) <span class="tok-kw">const</span> <span class="tok-kw">noexcept</span>;
+};</code></pre><h2>概要</h2>
+
+<p><code>Mouse</code> を <code>std::unordered_map</code> のキーとして利用するためのハッシュ関数オブジェクトです。</p>
+
+<h2>メンバ関数</h2>
+
+<table>
+<tr><th>名前</th><th>説明</th></tr>
+<tr><td>operator()</td><td>Mouse を整数値に変換してハッシュ値を返す</td></tr>
+</table>
+
+<h2>関連項目</h2>
+
+<ul>
+<li><a href="../../../core/input/InputState/Mouse.html">Mouse</a></li>
+</ul><h2>サンプルコード</h2><pre><code class="language-cpp">#<span class="tok-pre">include</span> &lt;core/input/InputState.h&gt;
+<span class="tok-kw">using</span> nx::core::input::MouseHash;
+<span class="tok-type">int</span> main() {
+    MouseHash value{};
+    (<span class="tok-type">void</span>)value;
+    <span class="tok-kw">return</span> <span class="tok-num">0</span>;
+}</code></pre></main></div>
+  <script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    const key = 'nx_reference_theme';
+    const saved = localStorage.getItem(key);
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved || (prefersDark ? 'dark' : 'light');
+    root.setAttribute('data-theme', initial);
+    if (btn) btn.textContent = initial === 'dark' ? 'Light' : 'Dark';
+    if (btn) btn.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(key, next);
+      btn.textContent = next === 'dark' ? 'Light' : 'Dark';
+    });
+  })();
+  </script>
+</body>
+</html>

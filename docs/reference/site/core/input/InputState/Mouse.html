@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>nx::core::input::Mouse - NX Reference</title>
+  <link rel="stylesheet" href="../../../assets/reference.css" />
+</head>
+<body>
+  <div class="layout"><aside class="sidebar"><div class="sidebar-header"><div class="sidebar-title"><a href="../../../index.html">NX Reference</a></div><button id="theme-toggle" class="theme-toggle" type="button">Dark</button></div><nav class="sidebar-nav"><ul><li><details><summary>Adapter</summary><ul><li><details><summary><a href="../../../adapter/dxlib/index.html">dxlib</a></summary><ul><li><details><summary><a href="../../../adapter/dxlib/DxLibInput.html"><span class="sidebar-namespace">adapter::dxlib::</span><span class="sidebar-symbol">DxLibInput</span></a></summary><ul><li><a href="../../../adapter/dxlib/DxLibInput/ctor.html">(constructor)</a></li><li><a href="../../../adapter/dxlib/DxLibInput/dtor.html">(destructor)</a></li><li><a href="../../../adapter/dxlib/DxLibInput/init.html">init</a></li><li><a href="../../../adapter/dxlib/DxLibInput/update.html">update</a></li></ul></details></li></ul></details></li></ul></details></li><li><details open class="current-branch"><summary>Core</summary><ul><li><details open class="current-branch"><summary><a href="../../../core/input/index.html">input</a></summary><ul><li><details><summary><a href="../../../core/input/InputBase.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputBase</span></a></summary><ul><li><a href="../../../core/input/InputBase/ctor.html">(constructor)</a></li><li><a href="../../../core/input/InputBase/dtor.html">(destructor)</a></li><li><a href="../../../core/input/InputBase/get_key_state.html">get_key_state</a></li><li><a href="../../../core/input/InputBase/get_mouse_point.html">get_mouse_point</a></li><li><a href="../../../core/input/InputBase/get_mouse_state.html">get_mouse_state</a></li><li><a href="../../../core/input/InputBase/init.html">init</a></li><li><a href="../../../core/input/InputBase/update.html">update</a></li></ul></details></li><li><details open class="current-branch"><summary><a href="../../../core/input/InputState.html">InputState</a></summary><ul><li><a href="../../../core/input/InputState/InputState.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputState</span></a></li><li><a href="../../../core/input/InputState/Key.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">Key</span></a></li><li><a href="../../../core/input/InputState/KeyHash.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">KeyHash</span></a></li><li><a href="../../../core/input/InputState/Mouse.html" class="active"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">Mouse</span></a></li><li><a href="../../../core/input/InputState/MouseHash.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">MouseHash</span></a></li><li><a href="../../../core/input/InputState/MousePoint.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">MousePoint</span></a></li></ul></details></li><li><details><summary><a href="../../../core/input/InputSystem.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputSystem</span></a></summary><ul><li><a href="../../../core/input/InputSystem/ctor.html">(constructor)</a></li><li><a href="../../../core/input/InputSystem/dtor.html">(destructor)</a></li><li><a href="../../../core/input/InputSystem/get_input_key.html">get_input_key</a></li><li><a href="../../../core/input/InputSystem/get_input_mouse.html">get_input_mouse</a></li><li><a href="../../../core/input/InputSystem/get_mouse_point.html">get_mouse_point</a></li><li><a href="../../../core/input/InputSystem/init.html">init</a></li><li><a href="../../../core/input/InputSystem/set_input_source.html">set_input_source</a></li><li><a href="../../../core/input/InputSystem/update.html">update</a></li></ul></details></li></ul></details></li></ul></details></li></ul></nav></aside><main class="content"><div class="api-layer">core/input</div><div class="api-category api-category-enum-class">enum class</div><h1 class="api-title"><span class="title-namespace">nx::core::input::</span><span class="title-name">Mouse</span></h1><pre class="top-definition"><code class="language-cpp"><span class="tok-kw">enum</span> <span class="tok-kw">class</span> Mouse {
+    Left,
+    Right,
+    Middle,
+    Extra1,
+    Extra2,
+    Count
+};</code></pre><h2>概要</h2>
+
+<p>マウスボタン識別子を表す列挙型です。</p>
+
+<h2>値</h2>
+
+<table>
+<tr><th>値</th><th>説明</th></tr>
+<tr><td>Left</td><td>左ボタン</td></tr>
+<tr><td>Right</td><td>右ボタン</td></tr>
+<tr><td>Middle</td><td>中央ボタン</td></tr>
+<tr><td>Extra1</td><td>拡張ボタン1</td></tr>
+<tr><td>Extra2</td><td>拡張ボタン2</td></tr>
+<tr><td>Count</td><td>要素数管理用</td></tr>
+</table>
+
+<h2>備考</h2>
+
+<p>具体的なボタン番号は Adapter 側でマッピングします。</p>
+
+<h2>関連項目</h2>
+
+<ul>
+<li><a href="../../../core/input/InputState/MouseHash.html">MouseHash</a></li>
+<li><a href="../../../core/input/InputState/MousePoint.html">MousePoint</a></li>
+</ul><h2>サンプルコード</h2><pre><code class="language-cpp">#<span class="tok-pre">include</span> &lt;core/input/InputState.h&gt;
+<span class="tok-kw">using</span> nx::core::input::Mouse;
+<span class="tok-type">int</span> main() {
+    <span class="tok-com">// Mouse の値を選択して状態を扱う</span>
+    <span class="tok-type">auto</span> state = Mouse::Pressed;
+    (<span class="tok-type">void</span>)state;
+    <span class="tok-kw">return</span> <span class="tok-num">0</span>;
+}</code></pre></main></div>
+  <script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    const key = 'nx_reference_theme';
+    const saved = localStorage.getItem(key);
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved || (prefersDark ? 'dark' : 'light');
+    root.setAttribute('data-theme', initial);
+    if (btn) btn.textContent = initial === 'dark' ? 'Light' : 'Dark';
+    if (btn) btn.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(key, next);
+      btn.textContent = next === 'dark' ? 'Light' : 'Dark';
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>nx::core::input::InputBase - NX Reference</title>
+  <link rel="stylesheet" href="../../assets/reference.css" />
+</head>
+<body>
+  <div class="layout"><aside class="sidebar"><div class="sidebar-header"><div class="sidebar-title"><a href="../../index.html">NX Reference</a></div><button id="theme-toggle" class="theme-toggle" type="button">Dark</button></div><nav class="sidebar-nav"><ul><li><details><summary>Adapter</summary><ul><li><details><summary><a href="../../adapter/dxlib/index.html">dxlib</a></summary><ul><li><details><summary><a href="../../adapter/dxlib/DxLibInput.html"><span class="sidebar-namespace">adapter::dxlib::</span><span class="sidebar-symbol">DxLibInput</span></a></summary><ul><li><a href="../../adapter/dxlib/DxLibInput/ctor.html">(constructor)</a></li><li><a href="../../adapter/dxlib/DxLibInput/dtor.html">(destructor)</a></li><li><a href="../../adapter/dxlib/DxLibInput/init.html">init</a></li><li><a href="../../adapter/dxlib/DxLibInput/update.html">update</a></li></ul></details></li></ul></details></li></ul></details></li><li><details open class="current-branch"><summary>Core</summary><ul><li><details open class="current-branch"><summary><a href="../../core/input/index.html">input</a></summary><ul><li><details open class="current-branch"><summary><a href="../../core/input/InputBase.html" class="active"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputBase</span></a></summary><ul><li><a href="../../core/input/InputBase/ctor.html">(constructor)</a></li><li><a href="../../core/input/InputBase/dtor.html">(destructor)</a></li><li><a href="../../core/input/InputBase/get_key_state.html">get_key_state</a></li><li><a href="../../core/input/InputBase/get_mouse_point.html">get_mouse_point</a></li><li><a href="../../core/input/InputBase/get_mouse_state.html">get_mouse_state</a></li><li><a href="../../core/input/InputBase/init.html">init</a></li><li><a href="../../core/input/InputBase/update.html">update</a></li></ul></details></li><li><details><summary><a href="../../core/input/InputState.html">InputState</a></summary><ul><li><a href="../../core/input/InputState/InputState.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputState</span></a></li><li><a href="../../core/input/InputState/Key.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">Key</span></a></li><li><a href="../../core/input/InputState/KeyHash.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">KeyHash</span></a></li><li><a href="../../core/input/InputState/Mouse.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">Mouse</span></a></li><li><a href="../../core/input/InputState/MouseHash.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">MouseHash</span></a></li><li><a href="../../core/input/InputState/MousePoint.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">MousePoint</span></a></li></ul></details></li><li><details><summary><a href="../../core/input/InputSystem.html"><span class="sidebar-namespace">nx::core::input::</span><span class="sidebar-symbol">InputSystem</span></a></summary><ul><li><a href="../../core/input/InputSystem/ctor.html">(constructor)</a></li><li><a href="../../core/input/InputSystem/dtor.html">(destructor)</a></li><li><a href="../../core/input/InputSystem/get_input_key.html">get_input_key</a></li><li><a href="../../core/input/InputSystem/get_input_mouse.html">get_input_mouse</a></li><li><a href="../../core/input/InputSystem/get_mouse_point.html">get_mouse_point</a></li><li><a href="../../core/input/InputSystem/init.html">init</a></li><li><a href="../../core/input/InputSystem/set_input_source.html">set_input_source</a></li><li><a href="../../core/input/InputSystem/update.html">update</a></li></ul></details></li></ul></details></li></ul></details></li></ul></nav></aside><main class="content"><div class="api-layer">core/input</div><div class="api-category api-category-class">class</div><h1 class="api-title"><span class="title-namespace">nx::core::input::</span><span class="title-name">InputBase</span></h1><pre class="top-definition"><code class="language-cpp"><span class="tok-kw">namespace</span> nx::core::input {
+
+<span class="tok-kw">class</span> InputBase {
+<span class="tok-kw">public</span>:
+    InputBase() = <span class="tok-kw">default</span>;
+    <span class="tok-kw">virtual</span> ~InputBase() = <span class="tok-kw">default</span>;
+
+    <span class="tok-kw">virtual</span> <span class="tok-type">bool</span> init() = <span class="tok-num">0</span>;
+    <span class="tok-kw">virtual</span> <span class="tok-type">void</span> update() = <span class="tok-num">0</span>;
+
+    <span class="tok-kw">const</span> <span class="tok-pre">std</span>::unordered_map&lt;Key, <span class="tok-type">bool</span>, KeyHash&gt;&amp; get_key_state() <span class="tok-kw">const</span>;
+    <span class="tok-kw">const</span> <span class="tok-pre">std</span>::unordered_map&lt;Mouse, <span class="tok-type">bool</span>, MouseHash&gt;&amp; get_mouse_state() <span class="tok-kw">const</span>;
+    <span class="tok-kw">const</span> MousePoint&amp; get_mouse_point() <span class="tok-kw">const</span>;
+};
+
+}</code></pre><h2>概要</h2>
+
+<p>入力取得の抽象基底クラスです。Core 側はこの契約を通して入力状態を参照します。</p>
+
+<h2>責務</h2>
+
+<ul>
+<li>入力ソースが満たすべき最小契約を定義する</li>
+<li>キー・マウス状態の参照口を提供する</li>
+<li>実際の入力ライブラリ呼び出しは担当しない</li>
+</ul>
+
+<h2>コンストラクタ</h2>
+
+<table>
+<tr><th>名前</th><th>説明</th></tr>
+<tr><td>InputBase()</td><td>デフォルト構築する</td></tr>
+<tr><td>~InputBase()</td><td>仮想デストラクタ</td></tr>
+</table>
+
+<h2>メンバ関数</h2>
+
+<table>
+<tr><th>名前</th><th>説明</th></tr>
+<tr><td><a href="../../core/input/InputBase/init.html">init</a></td><td>入力モジュール初期化</td></tr>
+<tr><td><a href="../../core/input/InputBase/update.html">update</a></td><td>フレームごとの入力更新</td></tr>
+<tr><td><a href="../../core/input/InputBase/get_key_state.html">get_key_state</a></td><td>キー押下状態マップ取得</td></tr>
+<tr><td><a href="../../core/input/InputBase/get_mouse_state.html">get_mouse_state</a></td><td>マウス押下状態マップ取得</td></tr>
+<tr><td><a href="../../core/input/InputBase/get_mouse_point.html">get_mouse_point</a></td><td>マウス座標取得</td></tr>
+</table>
+
+<h2>サンプルコード</h2>
+
+<pre><code class="language-cpp"><span class="tok-kw">using</span> nx::core::input::InputBase;
+
+<span class="tok-kw">class</span> DummyInput <span class="tok-kw">final</span> : <span class="tok-kw">public</span> InputBase {
+<span class="tok-kw">public</span>:
+    <span class="tok-type">bool</span> init() <span class="tok-kw">override</span> { <span class="tok-kw">return</span> <span class="tok-kw">true</span>; }
+    <span class="tok-type">void</span> update() <span class="tok-kw">override</span> {
+        <span class="tok-com">// key_state / mouse_state / mouse_point を更新する</span>
+    }
+};</code></pre>
+
+<h2>関連項目</h2>
+
+<ul>
+<li><a href="../../core/input/InputSystem.html">InputSystem</a></li>
+<li><a href="../../adapter/dxlib/DxLibInput.html">DxLibInput</a></li>
+</ul></main></div>
+  <script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    const key = 'nx_reference_theme';
+    const saved = localStorage.getItem(key);
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved || (prefersDark ? 'dark' : 'light');
+    root.setAttribute('data-theme', initial);
+    if (btn) btn.textContent = initial === 'dark' ? 'Light' : 'Dark';
+    if (btn) btn.addEventListener('click', function () {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(key, next);
+      btn.textContent = next === 'dark' ? 'Light' : 'Dark';
+    });
+  })();
+  </script>
+</body>
+</html>
