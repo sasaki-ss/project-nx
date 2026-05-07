@@ -1,5 +1,5 @@
-﻿#ifndef ADAPTER_INPUT_INPUTBASE_H
-#define ADAPTER_INPUT_INPUTBASE_H
+﻿#ifndef CORE_INPUT_INPUTBASE_H
+#define CORE_INPUT_INPUTBASE_H
 
 #include <unordered_map>
 
@@ -30,4 +30,4 @@ protected:
 }
 }
 
-#endif // ADAPTER_INPUT_INPUTBASE_H
+#endif // CORE_INPUT_INPUTBASE_H

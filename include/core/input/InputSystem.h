@@ -1,5 +1,5 @@
-﻿#ifndef CORE_OBJECT_INPUTSYSTEM_H
-#define CORE_OBJECT_INPUTSYSTEM_H
+﻿#ifndef CORE_INPUT_INPUTSYSTEM_H
+#define CORE_INPUT_INPUTSYSTEM_H
 
 #include <memory>
 #include <optional>
@@ -34,4 +34,4 @@ private:
 }
 }
 
-#endif // !CORE_OBJECT_INPUTSYSTEM_H
+#endif // !CORE_INPUT_INPUTSYSTEM_H
