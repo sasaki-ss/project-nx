@@ -22,6 +22,8 @@ public:
 	void update();
 	bool get_input(Key key, InputState state);
 	bool get_input(Mouse mouse, InputState state);
+
+	const MousePoint& get_mouse_point();
 private:
 	std::unique_ptr<KeyboardDevice> keyboard_dev;
 	std::unique_ptr<MouseDevice> mouse_dev;

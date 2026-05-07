@@ -49,6 +49,10 @@ bool InputSystem::get_input(Mouse mouse, InputState state) {
 	return mouse_dev->get_input(mouse, state);
 }
 
+const MousePoint& InputSystem::get_mouse_point() {
+	return input_module->get_mouse_point();
+}
+
 }
 }
 }
