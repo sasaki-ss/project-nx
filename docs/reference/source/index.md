@@ -2,11 +2,13 @@
 
 ## 概要
 
-Project NX の public API を参照するためのリファレンスです。まずは入力系 API を中心に整備しています。
+Project NX の public API を参照するためのリファレンスです。入力系・シーン系・コンポーネント系 API を整備しています。
 
 ## レイヤー別インデックス
 
 - [Core Input](/D:/work/Project_Core/docs/reference/source/core/input/index.md)
+- [Core Object](/D:/work/Project_Core/docs/reference/source/core/object/index.md)
+- [Core Scene](/D:/work/Project_Core/docs/reference/source/core/scene/index.md)
 - [Adapter DxLib](/D:/work/Project_Core/docs/reference/source/adapter/dxlib/index.md)
 
 ## 運用方針
