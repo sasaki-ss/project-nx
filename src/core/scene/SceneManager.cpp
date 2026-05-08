@@ -1,8 +1,8 @@
-#include "SceneManager.h"
+ï»¿#include "core/scene/SceneManager.h"
 
-#include "Component.h"
-#include "IScene.h"
-#include "Logger.h"
+#include "core/object/Component.h"
+#include "core/scene/IScene.h"
+#include "core/Logger.h"
 
 using nx::core::object::Component;
 
@@ -24,10 +24,10 @@ public:
 	}
 	void update()override {
 		std::cout << "update now" << std::endl;
-		//ƒƒO‚ğ•\¦
+		//ãƒ­ã‚°ã‚’è¡¨ç¤º
 	}
 	void draw()override {
-		//ƒƒO‚ğ•\¦
+		//ãƒ­ã‚°ã‚’è¡¨ç¤º
 		std::cout << "draw now" << std::endl;
 	}
 };
@@ -71,7 +71,7 @@ void SceneManager::draw() {
 void SceneManager::set_scene_creator(uint32_t scene_id, scene_creator_t scene_creator) {
 	auto [it, result] = scene_creators.try_emplace(scene_id, std::move(scene_creator));
 	if (!result) {
-		// ƒƒO‚ğ“ü‚ê‚é
+		// ãƒ­ã‚°ã‚’å…¥ã‚Œã‚‹
 	}
 }
 
@@ -98,7 +98,7 @@ void SceneManager::scene_change(uint32_t scene_id, SceneChangeMode mode) {
 
 void SceneManager::scene_change(SceneChangeMode mode) {
 	if (mode != SceneChangeMode::Pop) {
-		//ƒƒO‚ğ“ü‚ê‚é
+		//ãƒ­ã‚°ã‚’å…¥ã‚Œã‚‹
 		return;
 	}
 
@@ -119,16 +119,16 @@ void SceneManager::scene_change_commit() {
 		break;
 	case SceneChangeMode::Reset:
 		if (!commit_reset(info.scene_id)) {
-			// ƒƒO‚ğ“ü‚ê‚é
+			// ãƒ­ã‚°ã‚’å…¥ã‚Œã‚‹
 		}
 		break;
 	case SceneChangeMode::Push:
 		if (!commit_push(info.scene_id)) {
-			// ƒƒO‚ğ“ü‚ê‚é
+			// ãƒ­ã‚°ã‚’å…¥ã‚Œã‚‹
 		}
 		break;
 	default:
-		//ƒƒO‚ğ“ü‚ê‚é
+		//ãƒ­ã‚°ã‚’å…¥ã‚Œã‚‹
 		break;
 	}
 
@@ -138,13 +138,13 @@ void SceneManager::scene_change_commit() {
 auto SceneManager::create_scene(uint32_t scene_id) -> std::unique_ptr<IScene> {
 	auto scene_creator = scene_creators.find(scene_id);
 	if (scene_creator == scene_creators.end()) {
-		//ƒƒO‚ğ“ü‚ê‚é
+		//ãƒ­ã‚°ã‚’å…¥ã‚Œã‚‹
 		return nullptr;
 	}
 
 	auto scene = scene_creator->second(component);
 	if (!scene->init()) {
-		//ƒƒO‚ğ“ü‚ê‚é
+		//ãƒ­ã‚°ã‚’å…¥ã‚Œã‚‹
 		return nullptr;
 	}
 
