@@ -23,7 +23,7 @@ public:
     virtual ~IScene() = default;
     virtual bool init() = 0;
     virtual void end() = 0;
-    virtual void update(ISceneDirector* scene_director) = 0;
+    virtual void update(ISceneDirector& scene_director) = 0;
     virtual void draw() = 0;
 };
 

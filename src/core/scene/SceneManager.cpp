@@ -22,7 +22,7 @@ public:
     }
     void end() override {
     }
-    void update(ISceneDirector* scene_director) override {
+    void update(ISceneDirector& scene_director) override {
         std::cout << "update now" << std::endl;
         // ログを表示
     }
@@ -59,7 +59,7 @@ void SceneManager::end() {
 void SceneManager::update() {
     scene_change_commit();
 
-    scenes.top()->update(this);
+    scenes.top()->update(*this);
 }
 
 void SceneManager::draw() {
