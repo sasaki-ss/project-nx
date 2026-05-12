@@ -1,5 +1,11 @@
 # NX Reference Changelog
 
+## 2026-05-12 (Scene Reference Sync)
+
+- `develop` のシーン API に合わせて `IScene::update(ISceneDirector&)` の記述へ更新
+- `SceneManager::update()` が自身を `ISceneDirector&` として現在シーンへ渡す説明を追加
+- SceneManager 設計メモの更新サンプルとライフサイクル表を現行 API に同期
+
 ## 2026-05-07 (Initial Baseline + Sidebar/Function Layout Iteration)
 
 この時点はワークツリーが未追跡ファイル中心のため、`git diff --name-only` では差分が列挙されませんでした。  

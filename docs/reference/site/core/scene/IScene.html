@@ -18,7 +18,7 @@
 
     <span class="tok-kw">virtual</span> <span class="tok-type">bool</span> init() = <span class="tok-num">0</span>;
     <span class="tok-kw">virtual</span> <span class="tok-type">void</span> end() = <span class="tok-num">0</span>;
-    <span class="tok-kw">virtual</span> <span class="tok-type">void</span> update() = <span class="tok-num">0</span>;
+    <span class="tok-kw">virtual</span> <span class="tok-type">void</span> update(ISceneDirector&amp; scene_director) = <span class="tok-num">0</span>;
     <span class="tok-kw">virtual</span> <span class="tok-type">void</span> draw() = <span class="tok-num">0</span>;
 };
 
@@ -31,6 +31,7 @@
 <ul>
 <li>シーンライフサイクル（<code>init</code> / <code>end</code>）を統一する</li>
 <li>フレーム更新（<code>update</code> / <code>draw</code>）契約を提供する</li>
+<li>シーン更新時に <code>ISceneDirector&amp;</code> を受け取り、シーン側から遷移要求を出せるようにする</li>
 </ul>
 
 <h2>メンバ関数</h2>
@@ -40,7 +41,7 @@
 <tr><td>IScene(Component*)</td><td>共有コンポーネントを受け取ってシーンを構築する</td></tr>
 <tr><td>init()</td><td>シーン初期化。成功時 <code>true</code></td></tr>
 <tr><td>end()</td><td>シーン終了処理</td></tr>
-<tr><td>update()</td><td>シーン更新</td></tr>
+<tr><td>update(ISceneDirector&amp;)</td><td>シーン更新。必要に応じてディレクターへ遷移要求を出す</td></tr>
 <tr><td>draw()</td><td>シーン描画</td></tr>
 </table>
 

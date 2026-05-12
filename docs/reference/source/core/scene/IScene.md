@@ -19,7 +19,7 @@ public:
 
     virtual bool init() = 0;
     virtual void end() = 0;
-    virtual void update() = 0;
+    virtual void update(ISceneDirector& scene_director) = 0;
     virtual void draw() = 0;
 };
 
@@ -34,6 +34,7 @@ Core
 
 - シーンライフサイクル（`init` / `end`）を統一する
 - フレーム更新（`update` / `draw`）契約を提供する
+- シーン更新時に `ISceneDirector&` を受け取り、シーン側から遷移要求を出せるようにする
 
 ## メンバ関数
 
@@ -42,7 +43,7 @@ Core
 | IScene(Component*) | 共有コンポーネントを受け取ってシーンを構築する |
 | init() | シーン初期化。成功時 `true` |
 | end() | シーン終了処理 |
-| update() | シーン更新 |
+| update(ISceneDirector&) | シーン更新。必要に応じてディレクターへ遷移要求を出す |
 | draw() | シーン描画 |
 
 ## 関連項目
