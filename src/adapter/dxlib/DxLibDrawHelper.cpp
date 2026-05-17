@@ -10,7 +10,7 @@ namespace adapter {
 namespace dxlib {
 
 void DxLibDrawHelper::draw_box(float x, float y, float x2, float y2, Color color, bool is_fill) const {
-    int dx_fill = is_fill ? TRUE : FALSE;
+    const int dx_fill = is_fill ? TRUE : FALSE;
     if (color.a < ALPHA_MAX) {
         SetDrawBlendMode(DX_BLENDMODE_ALPHA, color.a);
         DrawBoxAA(x, y, x2, y2, GetColor(color.r, color.g, color.b), dx_fill);
