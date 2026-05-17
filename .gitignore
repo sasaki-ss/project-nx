@@ -39,5 +39,4 @@ Thumbs.db
 
 # other
 dx_reference/
-tools/__pycache__/
-tools/reference/__pycache__/
+tools/
