@@ -12,7 +12,7 @@ namespace scene {
 
 class DummyScene final : public IScene {
 public:
-    DummyScene(object::Component* comp) :
+    explicit DummyScene(object::Component* comp) :
         IScene(comp) {
     }
 

@@ -9,18 +9,18 @@ namespace object {
 
 class Component final {
 public:
-	Component() = default;
-	~Component() = default;
-	auto input() -> input::InputSystem& {
-		return input_system;
-	}
+    Component() = default;
+    ~Component() = default;
+    auto input() -> input::InputSystem& {
+        return input_system;
+    }
+
 private:
-	input::InputSystem input_system;
+    input::InputSystem input_system;
 };
 
-
-}
-}
-}
+} // namespace object
+} // namespace core
+} // namespace nx
 
 #endif // !CORE_OBJECT_COMPONENT

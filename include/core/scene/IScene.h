@@ -16,7 +16,7 @@ protected:
     object::Component* comp;
 
 public:
-    IScene(object::Component* comp) :
+    explicit IScene(object::Component* comp) :
         comp(comp) {
     }
 
