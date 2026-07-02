@@ -33,6 +33,10 @@ CMakeCache.txt
 cmake_install.cmake
 compile_commands.json
 
+# Build outputs (root)
+/nx.lib
+/sandbox.exe
+
 # OS
 .DS_Store
 Thumbs.db
