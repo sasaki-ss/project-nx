@@ -42,6 +42,10 @@ compile_commands.json
 Thumbs.db
 
 # other
+.claude
+sandbox/
+sample.*
+token.txt
 dx_reference/
 tools/__pycache__
 tools/reference
