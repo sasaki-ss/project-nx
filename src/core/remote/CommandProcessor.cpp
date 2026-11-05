@@ -4,7 +4,9 @@
 #include <sstream>
 #include <utility>
 
-using nx::core::input::MousePoint;
+namespace nx {
+namespace core {
+namespace remote {
 
 static constexpr std::string_view REPLY_READY = "@ready";
 static constexpr std::string_view REPLY_OK = "@ok";
@@ -19,17 +21,13 @@ static bool has_no_more_args(std::istream& args) {
     return !(args >> extra);
 }
 
-static auto read_point(std::istream& args) -> std::optional<MousePoint> {
-    MousePoint point{0, 0};
+static auto read_point(std::istream& args) -> std::optional<input::MousePoint> {
+    input::MousePoint point{0, 0};
     if (!(args >> point.x >> point.y) || !has_no_more_args(args)) {
         return std::nullopt;
     }
     return point;
 }
-
-namespace nx {
-namespace core {
-namespace remote {
 
 const CommandProcessor::Command CommandProcessor::COMMANDS[] = {
     {"move", "x y", &CommandProcessor::run_move},
