@@ -6,6 +6,7 @@
 - [end()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/end.md)
 - [update()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/update.md)
 - [draw()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/draw.md)
+- [set_initial_scene()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/set_initial_scene.md)
 - [open()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/open.md)
 - [go_to()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/go_to.md)
 - [back()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/back.md)

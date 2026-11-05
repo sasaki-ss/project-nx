@@ -1,5 +1,13 @@
 # NX Reference Changelog
 
+## 2026-11-05 (SceneManager Lifecycle)
+
+- `SceneManager::set_initial_scene` のページを追加し、定義とメンバ関数一覧に追記
+- `SceneManager::init` に、初期シーンの生成と戻り値の条件を追記
+- `SceneManager::~SceneManager` が `end` を呼ぶことを追記
+- `SceneManager::update` / `draw` の、シーンが積まれていないときの動作を追記
+- `site/` は再生成していない
+
 ## 2026-05-12 (Scene Reference Sync)
 
 - `develop` のシーン API に合わせて `IScene::update(ISceneDirector&)` の記述へ更新

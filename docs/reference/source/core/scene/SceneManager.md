@@ -18,6 +18,7 @@ public:
     void end();
     void update();
     void draw();
+    void set_initial_scene(uint32_t scene_id);
 
     void open(uint32_t scene_id) override;
     void go_to(uint32_t scene_id) override;
@@ -50,6 +51,7 @@ Core
 | [end()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/end.md) | 保持中シーンの終了処理 |
 | [update()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/update.md) | シーン更新と遷移コミット |
 | [draw()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/draw.md) | 現在シーンの描画 |
+| [set_initial_scene(uint32_t)](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/set_initial_scene.md) | init で最初に作るシーンを指定 |
 | [open(uint32_t)](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/open.md) | 指定IDのシーンを開く |
 | [go_to(uint32_t)](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/go_to.md) | 指定IDのシーンへ遷移 |
 | [back()](/D:/work/Project_Core/docs/reference/source/core/scene/SceneManager/back.md) | 1つ前のシーンへ戻る |
