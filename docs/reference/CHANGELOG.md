@@ -1,5 +1,11 @@
 # NX Reference Changelog
 
+## 2026-11-06 (IScreenCapture)
+
+- `nx::core::graphics` のページを追加し、`IScreenCapture` のページを追加
+- レイヤー別インデックスに Core Graphics を追加
+- `site/` を再生成した
+
 ## 2026-11-05 (InputSystem 入力ソースは 1 回だけ)
 
 - `InputSystem::set_input_source` に、設定できるのは 1 回だけであることと、戻り値の条件を追記
