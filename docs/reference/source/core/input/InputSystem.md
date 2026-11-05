@@ -50,7 +50,7 @@ Core
 | 名前 | 説明 |
 |---|---|
 | [init](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/init.md) | 入力システム初期化 |
-| [set_input_source](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/set_input_source.md) | 入力ソース実装を設定 |
+| [set_input_source](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/set_input_source.md) | 入力ソース実装を設定 (1 回だけ) |
 | [update](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/update.md) | 入力状態更新 |
 | [get_input(Key, InputState)](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/get_input_key.md) | キー入力状態問い合わせ |
 | [get_input(Mouse, InputState)](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/get_input_mouse.md) | マウス入力状態問い合わせ |

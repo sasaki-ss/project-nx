@@ -1,5 +1,7 @@
 ﻿#include "core/input/InputSystem.h"
 
+#include "core/util/Logger.h"
+
 #include "KeyboardDevice.h"
 #include "MouseDevice.h"
 
@@ -28,8 +30,15 @@ bool InputSystem::set_input_source(std::unique_ptr<InputBase> input_module) {
     if (!input_module) {
         return false;
     }
+    if (this->input_module) {
+        util::logger.warn("Input source is already set. The new one is not used.");
+        return true;
+    }
+    if (!input_module->init()) {
+        return false;
+    }
     this->input_module = std::move(input_module);
-    return this->input_module->init();
+    return true;
 }
 
 void InputSystem::update() {

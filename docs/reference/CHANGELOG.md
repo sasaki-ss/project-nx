@@ -1,5 +1,11 @@
 # NX Reference Changelog
 
+## 2026-11-05 (InputSystem 入力ソースは 1 回だけ)
+
+- `InputSystem::set_input_source` に、設定できるのは 1 回だけであることと、戻り値の条件を追記
+- `InputSystem` のメンバ関数一覧の説明を更新
+- `site/` を再生成した
+
 ## 2026-11-05 (site 再生成)
 
 - `source/` に合わせて `site/` を再生成した。Logger・`SceneManager::set_initial_scene`・動作環境 (C++20) が `site/` にも反映された
