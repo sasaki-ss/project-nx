@@ -37,7 +37,6 @@ SceneManager::SceneManager(Component* component) :
 }
 
 SceneManager::~SceneManager() {
-    // 使う側が end() を呼び忘れても各シーンの end を呼ぶ。呼び済みならシーンは残っていないので何もしない
     end();
 }
 
