@@ -10,28 +10,6 @@ namespace nx {
 namespace core {
 namespace scene {
 
-class DummyScene final : public IScene {
-public:
-    explicit DummyScene(object::Component* comp) :
-        IScene(comp) {
-    }
-
-    ~DummyScene() override = default;
-    bool init() override {
-        return true;
-    }
-    void end() override {
-    }
-    void update(ISceneDirector& scene_director) override {
-        std::cout << "update now" << std::endl;
-        // ログを表示
-    }
-    void draw() override {
-        // ログを表示
-        std::cout << "draw now" << std::endl;
-    }
-};
-
 SceneManager::SceneManager(Component* component) :
     component(component) {
 }
@@ -41,8 +19,12 @@ SceneManager::~SceneManager() {
 }
 
 bool SceneManager::init() {
-    auto scene = std::make_unique<DummyScene>(component);
-    if (!scene->init()) {
+    if (!initial_scene_id) {
+        return true;
+    }
+
+    auto scene = create_scene(*initial_scene_id);
+    if (scene == nullptr) {
         return false;
     }
 
@@ -78,6 +60,10 @@ void SceneManager::set_scene_creator(uint32_t scene_id, scene_creator_t scene_cr
     if (!result) {
         // ログを入れる
     }
+}
+
+void SceneManager::set_initial_scene(uint32_t scene_id) {
+    initial_scene_id = scene_id;
 }
 
 void SceneManager::open(uint32_t scene_id) {

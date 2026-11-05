@@ -26,6 +26,7 @@ public:
     void end();
     void update();
     void draw();
+    void set_initial_scene(uint32_t scene_id);
 
     void open(uint32_t scene_id) override;
     void go_to(uint32_t scene_id) override;
@@ -42,6 +43,7 @@ private:
 
     std::unordered_map<uint32_t, scene_creator_t> scene_creators;
     std::stack<std::unique_ptr<IScene>> scenes;
+    std::optional<uint32_t> initial_scene_id;
     std::optional<PendingSceneChange> pending_info;
     object::Component* component;
 
