@@ -3,7 +3,9 @@
 
 #include <deque>
 #include <functional>
+#include <istream>
 #include <string>
+#include <string_view>
 
 #include "core/graphics/IScreenCapture.h"
 #include "RemoteInput.h"
@@ -16,26 +18,45 @@ class CommandProcessor {
 public:
     typedef std::function<void(const std::string&)> reply_writer_t;
 
-    CommandProcessor(RemoteInput& remote_input, graphics::IScreenCapture& screen_capture, reply_writer_t reply_writer);
+    CommandProcessor(RemoteInput& remote_input, graphics::IScreenCapture& screen_capture, reply_writer_t writer);
     void push_line(std::string line);
     void push_end_of_input();
     bool begin_frame();
     void end_frame();
 
 private:
+    enum class State {
+        Starting,
+        Idle,
+        Releasing,
+        Shooting,
+        Stopped
+    };
+
+    struct Command {
+        std::string_view name;
+        std::string_view usage;
+        bool (CommandProcessor::*run)(std::istream& args);
+    };
+    static const Command COMMANDS[];
+
     RemoteInput& input;
     graphics::IScreenCapture& capture;
-    reply_writer_t write_reply;
+    reply_writer_t reply_writer;
 
     std::deque<std::string> lines;
     bool is_end_of_input = false;
-    bool is_ready_sent = false;
-    bool is_release_pending = false;
-    bool is_shot_pending = false;
-    bool is_quit_requested = false;
+    State state = State::Starting;
     std::string shot_path;
 
     void run_line(const std::string& line);
+    bool run_move(std::istream& args);
+    bool run_click(std::istream& args);
+    bool run_shot(std::istream& args);
+    bool run_quit(std::istream& args);
+
+    void write_reply(std::string_view line);
+    void write_error(std::string_view reason, std::string_view detail);
 };
 
 } // namespace remote
