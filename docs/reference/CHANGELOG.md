@@ -1,5 +1,11 @@
 # NX Reference Changelog
 
+## 2026-11-05 (Logger)
+
+- `nx::core::util` を追加し、`Logger` / `LogLevel` / `LogMessage` と `Logger` の各関数のページを追加
+- レイヤー別インデックスに Core Util を追加
+- `site/` は再生成していない
+
 ## 2026-11-05 (SceneManager Lifecycle)
 
 - `SceneManager::set_initial_scene` のページを追加し、定義とメンバ関数一覧に追記
