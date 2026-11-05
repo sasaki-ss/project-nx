@@ -1,5 +1,11 @@
 # NX Reference Changelog
 
+## 2026-11-06 (remote)
+
+- `nx::core::remote` のページを追加し、`begin_frame` / `end_frame` のページと、AI 操作の命令と返事の一覧を追加
+- レイヤー別インデックスに Core Remote を追加
+- `site/` を再生成した
+
 ## 2026-11-06 (IScreenCapture)
 
 - `nx::core::graphics` のページを追加し、`IScreenCapture` のページを追加
