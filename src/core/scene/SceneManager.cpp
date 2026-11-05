@@ -60,10 +60,16 @@ void SceneManager::end() {
 void SceneManager::update() {
     scene_change_commit();
 
+    if (scenes.empty()) {
+        return;
+    }
     scenes.top()->update(*this);
 }
 
 void SceneManager::draw() {
+    if (scenes.empty()) {
+        return;
+    }
     scenes.top()->draw();
 }
 
