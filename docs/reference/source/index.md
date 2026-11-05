@@ -4,6 +4,10 @@
 
 Project NX の public API を参照するためのリファレンスです。入力系・シーン系・コンポーネント系 API を整備しています。
 
+## 動作環境
+
+- C++20 以上を推奨する (2026-11-05 から)
+
 ## レイヤー別インデックス
 
 - [Core Input](/D:/work/Project_Core/docs/reference/source/core/input/index.md)
