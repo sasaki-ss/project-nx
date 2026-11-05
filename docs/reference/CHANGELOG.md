@@ -1,5 +1,9 @@
 # NX Reference Changelog
 
+## 2026-11-05 (site 再生成)
+
+- `source/` に合わせて `site/` を再生成した。Logger・`SceneManager::set_initial_scene`・動作環境 (C++20) が `site/` にも反映された
+
 ## 2026-11-05 (C++20)
 
 - 推奨する C++ のバージョンを C++20 以上にし、トップページに「動作環境」を追加
