@@ -4,6 +4,8 @@
 
 AI がゲームを操作するための Core レイヤーの API 群です。AI からの命令を標準入力で受け取り、ゲームのループに反映します。Debug ビルドでだけ動きます。
 
+AI 操作は、`--nx-remote` を付けて起動し、main で [launch](/D:/work/Project_Core/docs/reference/source/core/app/launch.md) を呼んだときに有効になります。
+
 AI 操作が有効でないとき (普段の起動) と Release ビルドでは、何もしません。
 
 ## 関数
@@ -32,5 +34,6 @@ AI 操作が有効でないとき (普段の起動) と Release ビルドでは�
 
 ## 関連
 
+- [nx::core::app::launch](/D:/work/Project_Core/docs/reference/source/core/app/launch.md)
 - [nx::core::input](/D:/work/Project_Core/docs/reference/source/core/input/index.md)
 - [nx::core::graphics::IScreenCapture](/D:/work/Project_Core/docs/reference/source/core/graphics/IScreenCapture.md)

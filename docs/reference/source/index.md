@@ -10,6 +10,7 @@ Project NX の public API を参照するためのリファレンスです。入
 
 ## レイヤー別インデックス
 
+- [Core App](/D:/work/Project_Core/docs/reference/source/core/app/index.md)
 - [Core Graphics](/D:/work/Project_Core/docs/reference/source/core/graphics/index.md)
 - [Core Input](/D:/work/Project_Core/docs/reference/source/core/input/index.md)
 - [Core Object](/D:/work/Project_Core/docs/reference/source/core/object/index.md)

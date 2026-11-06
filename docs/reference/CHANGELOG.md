@@ -1,5 +1,12 @@
 # NX Reference Changelog
 
+## 2026-11-06 (launch)
+
+- `nx::core::app` のページを追加し、`IBackend` と `launch` のページと、起動時の指定の一覧を追加
+- `nx::core::remote` の概要に、AI 操作が有効になる条件 (`--nx-remote` と `launch`) を追記
+- レイヤー別インデックスに Core App を追加
+- `site/` を再生成した
+
 ## 2026-11-06 (remote)
 
 - `nx::core::remote` のページを追加し、`begin_frame` / `end_frame` のページと、AI 操作の命令と返事の一覧を追加
