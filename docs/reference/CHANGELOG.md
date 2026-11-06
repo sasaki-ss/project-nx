@@ -1,5 +1,10 @@
 # NX Reference Changelog
 
+## 2026-11-06 (launch の Release)
+
+- `launch` の備考で、Release ビルドの動きを「inline 関数になる」から「`--nx-remote` は何もせず、`apply_before_init` に `false` を渡す」に直した
+- `site/` を再生成した
+
 ## 2026-11-06 (launch)
 
 - `nx::core::app` のページを追加し、`IBackend` と `launch` のページと、起動時の指定の一覧を追加

@@ -21,7 +21,7 @@ Debug ビルドで `--nx-remote` があれば AI 操作を有効にします。�
 - AI 操作が有効なとき、ゲームの `set_input_source` は 2 回目になり、渡した入力元は使われません (`true` が返ります)
 - `--nx-` で始まる知らない指定は、警告をログに出して無視します。`--nx-` で始まらない引数は読まず、`argv` から取り除きもしません
 - `IBackend::make_screen_capture` が空を返したときは、エラーをログに出し、AI 操作を無効にして普段どおり起動します
-- Release ビルドでは、`backend.apply_before_init(false)` だけを呼ぶ inline 関数になります。`--nx-remote` は何もしません
+- Release ビルドでは `--nx-remote` は何もせず、`IBackend::apply_before_init` に `false` を渡します。`IBackend::make_screen_capture` は呼びません
 
 ## サンプルコード
 ```cpp

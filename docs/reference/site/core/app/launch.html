@@ -26,7 +26,7 @@
 <li>AI 操作が有効なとき、ゲームの <code>set_input_source</code> は 2 回目になり、渡した入力元は使われません (<code>true</code> が返ります)</li>
 <li><code>--nx-</code> で始まる知らない指定は、警告をログに出して無視します。<code>--nx-</code> で始まらない引数は読まず、<code>argv</code> から取り除きもしません</li>
 <li><code>IBackend::make_screen_capture</code> が空を返したときは、エラーをログに出し、AI 操作を無効にして普段どおり起動します</li>
-<li>Release ビルドでは、<code>backend.apply_before_init(false)</code> だけを呼ぶ inline 関数になります。<code>--nx-remote</code> は何もしません</li>
+<li>Release ビルドでは <code>--nx-remote</code> は何もせず、<code>IBackend::apply_before_init</code> に <code>false</code> を渡します。<code>IBackend::make_screen_capture</code> は呼びません</li>
 </ul>
 <h2>サンプルコード</h2>
 <pre><code class="language-cpp"><span class="tok-kw">using</span> nx::core::app::launch;
