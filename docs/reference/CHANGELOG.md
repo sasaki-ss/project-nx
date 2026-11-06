@@ -1,5 +1,11 @@
 # NX Reference Changelog
 
+## 2026-11-06 (DxLibBackend)
+
+- `adapter::dxlib::DxLibBackend` のページを追加し、adapter/dxlib の一覧に追加。一覧の概要を、入力だけの説明から広げた
+- `launch` のサンプルコードを `DxLibBackend` を使う形にし、`IBackend` のページに関連項目を追加
+- `site/` を再生成した
+
 ## 2026-11-06 (launch の Release)
 
 - `launch` の備考で、Release ビルドの動きを「inline 関数になる」から「`--nx-remote` は何もせず、`apply_before_init` に `false` を渡す」に直した

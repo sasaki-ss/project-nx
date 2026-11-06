@@ -43,3 +43,8 @@ Core
 - `make_screen_capture` は、Debug ビルドで `--nx-remote` があるときだけ、`apply_before_init` より先に呼ばれる
 - `make_screen_capture` が空を返すと、`launch` は AI 操作を無効にし、`apply_before_init` に `false` を渡す
 - `make_screen_capture` はライブラリの初期化前に呼ばれるので、撮影の実装は作るときにライブラリの関数を呼ばない
+
+## 関連項目
+
+- [adapter::dxlib::DxLibBackend](/D:/work/Project_Core/docs/reference/source/adapter/dxlib/DxLibBackend.md)
+- [nx::core::app::launch](/D:/work/Project_Core/docs/reference/source/core/app/launch.md)

@@ -25,12 +25,17 @@ Debug ビルドで `--nx-remote` があれば AI 操作を有効にします。�
 
 ## サンプルコード
 ```cpp
+#include "adapter/dxlib/DxLibBackend.h"
+#include "core/app/Launch.h"
+#include "core/object/Component.h"
+
+using adapter::dxlib::DxLibBackend;
 using nx::core::app::launch;
 using nx::core::object::Component;
 
 int main(int argc, char** argv) {
     Component component;
-    MyBackend backend; // IBackend を継承した、使うライブラリ用のクラス
+    DxLibBackend backend;
     launch(argc, argv, component, backend);
 
     // ここでライブラリを初期化する (DxLib_Init など)
