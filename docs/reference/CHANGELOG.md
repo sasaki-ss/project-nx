@@ -1,5 +1,11 @@
 # NX Reference Changelog
 
+## 2026-11-09 (DxLibBackend の UTF-8)
+
+- `DxLibBackend::apply_before_init` が常に DxLib の文字列を UTF-8 にすることを、概要・責務・メンバ関数・備考に追記。ゲームは文字列リテラルを UTF-8 でビルドする (`/utf-8`) ことを備考に書いた
+- `IBackend::apply_before_init` に、AI 操作に関係しない初期化前の設定は `true` でも `false` でも行うことを追記
+- `site/` を再生成した
+
 ## 2026-11-06 (DxLibBackend)
 
 - `adapter::dxlib::DxLibBackend` のページを追加し、adapter/dxlib の一覧に追加。一覧の概要を、入力だけの説明から広げた

@@ -17,11 +17,12 @@
 
 }</code></pre><h2>概要</h2>
 
-<p><code>nx::core::app::IBackend</code> の DxLib 版です。<code>launch</code> に渡すと、AI 操作のときに DxLib の窓を隠し、DxLib で画面を保存する撮影の実装を作ります。</p>
+<p><code>nx::core::app::IBackend</code> の DxLib 版です。<code>launch</code> に渡すと、DxLib が扱う文字列を UTF-8 にします。AI 操作のときは DxLib の窓を隠し、DxLib で画面を保存する撮影の実装を作ります。</p>
 
 <h2>責務</h2>
 
 <ul>
+<li><code>DxLib_Init</code> より前に、DxLib が扱う文字列を UTF-8 にする</li>
 <li>AI 操作のとき、<code>DxLib_Init</code> より前に窓を隠し、前面に無くても動くようにする</li>
 <li>DxLib で画面を PNG に保存する撮影の実装を作る</li>
 </ul>
@@ -30,13 +31,14 @@
 
 <table>
 <tr><th>名前</th><th>説明</th></tr>
-<tr><td>apply_before_init(bool)</td><td><code>true</code> なら <code>SetWindowVisibleFlag(FALSE)</code> と <code>SetAlwaysRunFlag(TRUE)</code> を呼ぶ。<code>false</code> なら何もしない</td></tr>
+<tr><td>apply_before_init(bool)</td><td>常に <code>SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8)</code> を呼ぶ。<code>true</code> なら、さらに <code>SetWindowVisibleFlag(FALSE)</code> と <code>SetAlwaysRunFlag(TRUE)</code> を呼ぶ</td></tr>
 <tr><td>make_screen_capture()</td><td>DxLib での撮影の実装を作る。Release ビルドでは空を返す</td></tr>
 </table>
 
 <h2>備考</h2>
 
 <ul>
+<li>DxLib の既定は Shift_JIS (コードページ 932) です。<code>DxLibBackend</code> を使うゲームは、文字列リテラルを UTF-8 でビルドします (MSVC では <code>/utf-8</code>)。設定の後に作ったフォントも、追加の指定なしで UTF-8 の文字列を描きます</li>
 <li>撮影は、<code>end_frame</code> を呼んだときの描画先 (<code>SetDrawScreen</code> で選んだ画面) を、描画先と同じ大きさの PNG に保存する。PNG はアルファを持たない</li>
 <li>撮影の実装は <code>DxLib_Init</code> より前に作られるが、作るときには DxLib の関数を呼ばない</li>
 <li>撮影の実装は、Release ビルドの exe には入らない</li>
