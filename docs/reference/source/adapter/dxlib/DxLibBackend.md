@@ -2,7 +2,7 @@
 
 ## 概要
 
-`nx::core::app::IBackend` の DxLib 版です。`launch` に渡すと、DxLib が扱う文字列を UTF-8 にします。AI 操作のときは DxLib の窓を隠し、DxLib で画面を保存する撮影の実装を作ります。
+`nx::core::app::IBackend` の DxLib 版です。`launch` に渡すと、DxLib が扱う文字列を UTF-8 にし、DxLib のログファイル (`Log.txt`) を出さないようにします。AI 操作のときは DxLib の窓を隠し、DxLib で画面を保存する撮影の実装を作ります。
 
 ## 定義
 
@@ -25,6 +25,7 @@ Adapter
 ## 責務
 
 - `DxLib_Init` より前に、DxLib が扱う文字列を UTF-8 にする
+- `DxLib_Init` より前に、DxLib が作業フォルダに書くログファイル (`Log.txt`) を止める
 - AI 操作のとき、`DxLib_Init` より前に窓を隠し、前面に無くても動くようにする
 - DxLib で画面を PNG に保存する撮影の実装を作る
 
@@ -32,7 +33,7 @@ Adapter
 
 | 名前 | 説明 |
 |---|---|
-| apply_before_init(bool) | 常に `SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8)` を呼ぶ。`true` なら、さらに `SetWindowVisibleFlag(FALSE)` と `SetAlwaysRunFlag(TRUE)` を呼ぶ |
+| apply_before_init(bool) | 常に `SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8)` と `SetOutApplicationLogValidFlag(FALSE)` を呼ぶ。`true` なら、さらに `SetWindowVisibleFlag(FALSE)` と `SetAlwaysRunFlag(TRUE)` を呼ぶ |
 | make_screen_capture() | DxLib での撮影の実装を作る。Release ビルドでは空を返す |
 
 ## 備考

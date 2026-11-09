@@ -9,6 +9,7 @@ namespace dxlib {
 
 void DxLibBackend::apply_before_init(bool remote_enabled) {
     SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8);
+    SetOutApplicationLogValidFlag(FALSE);
 
     if (!remote_enabled) {
         return;
