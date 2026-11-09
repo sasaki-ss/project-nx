@@ -32,6 +32,7 @@ with RemoteGame.launch("build/Debug/game.exe", work_dir="work") as game:
 | `RemoteGame.launch(exe_path, work_dir=None, args=(), ready_timeout=20.0)` | `--nx-remote` を付けて起動し、`@ready` を待つ。`work_dir` はゲームの作業フォルダ、`args` は後ろに足す起動引数 |
 | `move(x, y, timeout=10.0)` | マウスを動かす |
 | `click(x, y, timeout=10.0)` | 動かして左クリックする。離したところで戻る |
+| `wheel(x, y, amount, timeout=10.0)` | 動かしてホイールを amount ノッチ回す。奥へ回すと正 |
 | `shot(path, timeout=10.0)` | 画面を PNG で保存する。相対パスは呼んだ側の作業フォルダを基準にする |
 | `quit(timeout=10.0)` | 終わらせて、終了コードを返す |
 | `logs` | `@` で始まらない行 (ログ) の一覧 |

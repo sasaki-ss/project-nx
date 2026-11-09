@@ -32,6 +32,7 @@ static auto read_point(std::istream& args) -> std::optional<input::MousePoint> {
 const CommandProcessor::Command CommandProcessor::COMMANDS[] = {
     {"move", "x y", &CommandProcessor::run_move},
     {"click", "x y", &CommandProcessor::run_click},
+    {"wheel", "x y amount", &CommandProcessor::run_wheel},
     {"shot", "path", &CommandProcessor::run_shot},
     {"quit", "", &CommandProcessor::run_quit},
 };
@@ -139,6 +140,19 @@ bool CommandProcessor::run_click(std::istream& args) {
     input.set_mouse_point(*point);
     input.set_left_button(true);
     state = State::Releasing;
+    return true;
+}
+
+bool CommandProcessor::run_wheel(std::istream& args) {
+    input::MousePoint point{0, 0};
+    int amount = 0;
+    if (!(args >> point.x >> point.y >> amount) || !has_no_more_args(args)) {
+        return false;
+    }
+
+    input.set_mouse_point(point);
+    input.add_mouse_wheel(amount);
+    write_reply(REPLY_OK);
     return true;
 }
 

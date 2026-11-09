@@ -23,6 +23,9 @@ bool RemoteInput::init() {
 void RemoteInput::update() {
     mouse_point = next_mouse_point;
     mouse_state[Mouse::Left] = next_left_button;
+    // 本物のホイールと同じく、回した量は次の 1 回の update にだけ現れる
+    mouse_wheel = next_mouse_wheel;
+    next_mouse_wheel = 0;
 }
 
 void RemoteInput::set_mouse_point(const MousePoint& point) {
@@ -31,6 +34,10 @@ void RemoteInput::set_mouse_point(const MousePoint& point) {
 
 void RemoteInput::set_left_button(bool is_down) {
     next_left_button = is_down;
+}
+
+void RemoteInput::add_mouse_wheel(int amount) {
+    next_mouse_wheel += amount;
 }
 
 } // namespace remote

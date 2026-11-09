@@ -54,6 +54,9 @@ class RemoteGame:
     def click(self, x, y, timeout=REPLY_TIMEOUT):
         self._send(f"click {x} {y}", timeout)
 
+    def wheel(self, x, y, amount, timeout=REPLY_TIMEOUT):
+        self._send(f"wheel {x} {y} {amount}", timeout)
+
     def shot(self, path, timeout=REPLY_TIMEOUT):
         # ゲームは自分の作業フォルダを基準にパスを読むので、呼んだ側の基準で絶対パスにしてから送る
         self._send(f"shot {Path(path).resolve()}", timeout)

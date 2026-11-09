@@ -52,6 +52,7 @@ private:
     void run_line(const std::string& line);
     bool run_move(std::istream& args);
     bool run_click(std::istream& args);
+    bool run_wheel(std::istream& args);
     bool run_shot(std::istream& args);
     bool run_quit(std::istream& args);
 

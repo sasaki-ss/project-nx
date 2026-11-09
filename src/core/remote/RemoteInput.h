@@ -16,10 +16,12 @@ public:
 
     void set_mouse_point(const input::MousePoint& point);
     void set_left_button(bool is_down);
+    void add_mouse_wheel(int amount);
 
 private:
     input::MousePoint next_mouse_point{0, 0};
     bool next_left_button = false;
+    int next_mouse_wheel = 0;
 };
 
 } // namespace remote

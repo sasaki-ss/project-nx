@@ -31,6 +31,7 @@
 <tr><th>命令</th><th>すること</th><th>返事</th></tr>
 <tr><td><code>move x y</code></td><td>マウスを (x, y) へ動かす</td><td>すぐに <code>@ok</code></td></tr>
 <tr><td><code>click x y</code></td><td>(x, y) へ動かし、左ボタンを 1 フレーム押して、次のフレームで離す</td><td>離したときに <code>@ok</code></td></tr>
+<tr><td><code>wheel x y amount</code></td><td>(x, y) へ動かし、次のフレームでだけホイールを amount ノッチ回す (奥へ回すと正)。同じフレームに届いた分は足し合わせる</td><td>すぐに <code>@ok</code></td></tr>
 <tr><td><code>shot パス</code></td><td>次に描き終えた画面を PNG で保存する。パスは行の残り全部 (空白を含んでよい)</td><td>保存できたら <code>@ok</code>、できなければ <code>@error failed to save: パス</code></td></tr>
 <tr><td><code>quit</code></td><td>ゲームのループを終わらせる</td><td><code>@ok</code></td></tr>
 </table>
