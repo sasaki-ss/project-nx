@@ -33,6 +33,8 @@ const CommandProcessor::Command CommandProcessor::COMMANDS[] = {
     {"move", "x y", &CommandProcessor::run_move},
     {"click", "x y", &CommandProcessor::run_click},
     {"wheel", "x y amount", &CommandProcessor::run_wheel},
+    {"press", "", &CommandProcessor::run_press},
+    {"release", "", &CommandProcessor::run_release},
     {"shot", "path", &CommandProcessor::run_shot},
     {"quit", "", &CommandProcessor::run_quit},
 };
@@ -63,6 +65,10 @@ bool CommandProcessor::begin_frame() {
         state = State::Idle;
         // 離したフレームで次の命令がボタンを押すと、離したことがゲームに伝わらない
         return true;
+    case State::Applying:
+        write_reply(REPLY_OK);
+        state = State::Idle;
+        break;
     case State::Stopped:
         return false;
     case State::Idle:
@@ -153,6 +159,25 @@ bool CommandProcessor::run_wheel(std::istream& args) {
     input.set_mouse_point(point);
     input.add_mouse_wheel(amount);
     write_reply(REPLY_OK);
+    return true;
+}
+
+bool CommandProcessor::run_press(std::istream& args) {
+    return set_left_button_for_one_frame(args, true);
+}
+
+bool CommandProcessor::run_release(std::istream& args) {
+    return set_left_button_for_one_frame(args, false);
+}
+
+bool CommandProcessor::set_left_button_for_one_frame(std::istream& args, bool is_down) {
+    if (!has_no_more_args(args)) {
+        return false;
+    }
+
+    // 返事はゲームがそのフレームを通った後に返す。すぐ返すと、続く move が同じフレームに入り、押した (離した) 位置が移動先にずれる
+    input.set_left_button(is_down);
+    state = State::Applying;
     return true;
 }
 

@@ -33,6 +33,9 @@ with RemoteGame.launch("build/Debug/game.exe", work_dir="work") as game:
 | `move(x, y, timeout=10.0)` | マウスを動かす |
 | `click(x, y, timeout=10.0)` | 動かして左クリックする。離したところで戻る |
 | `wheel(x, y, amount, timeout=10.0)` | 動かしてホイールを amount ノッチ回す。奥へ回すと正 |
+| `press(timeout=10.0)` | 今の位置で左ボタンを押したままにする。押したフレームの後で戻る |
+| `release(timeout=10.0)` | 今の位置で左ボタンを離す。離したフレームの後で戻る |
+| `drag(from_x, from_y, to_x, to_y, timeout=10.0)` | `move` → `press` → `move` → `release` の順に送る |
 | `shot(path, timeout=10.0)` | 画面を PNG で保存する。相対パスは呼んだ側の作業フォルダを基準にする |
 | `quit(timeout=10.0)` | 終わらせて、終了コードを返す |
 | `logs` | `@` で始まらない行 (ログ) の一覧 |

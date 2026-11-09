@@ -29,6 +29,7 @@ private:
         Starting,
         Idle,
         Releasing,
+        Applying,
         Shooting,
         Stopped
     };
@@ -53,6 +54,9 @@ private:
     bool run_move(std::istream& args);
     bool run_click(std::istream& args);
     bool run_wheel(std::istream& args);
+    bool run_press(std::istream& args);
+    bool run_release(std::istream& args);
+    bool set_left_button_for_one_frame(std::istream& args, bool is_down);
     bool run_shot(std::istream& args);
     bool run_quit(std::istream& args);
 
