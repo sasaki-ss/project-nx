@@ -24,6 +24,7 @@ public:
     bool get_input(Mouse mouse, InputState state);
 
     auto get_mouse_point() -> std::optional<MousePoint>;
+    auto get_mouse_wheel() -> std::optional<int>;
 
 private:
     std::unique_ptr<KeyboardDevice> keyboard_dev;

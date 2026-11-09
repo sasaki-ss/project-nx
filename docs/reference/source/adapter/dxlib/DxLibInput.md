@@ -45,6 +45,10 @@ Adapter
 | [init](/D:/work/Project_Core/docs/reference/source/adapter/dxlib/DxLibInput/init.md) | DxLib 側の入力利用準備 |
 | [update](/D:/work/Project_Core/docs/reference/source/adapter/dxlib/DxLibInput/update.md) | DxLib から現在入力状態を取り込み |
 
+## 備考
+
+- ホイールは `update` のたびに `GetMouseWheelRotVol()` で読む。DxLib の回転量は読むたびに 0 に戻るので、`DxLibInput` を使うゲームが `GetMouseWheelRotVol` を直接呼ぶと、回転を取り合ってどちらかに届かない
+
 ## サンプルコード
 
 ```cpp

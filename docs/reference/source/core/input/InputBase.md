@@ -21,6 +21,7 @@ public:
     const std::unordered_map<Key, bool, KeyHash>& get_key_state() const;
     const std::unordered_map<Mouse, bool, MouseHash>& get_mouse_state() const;
     const MousePoint& get_mouse_point() const;
+    int get_mouse_wheel() const;
 };
 
 }
@@ -52,6 +53,7 @@ Core
 | [get_key_state](/D:/work/Project_Core/docs/reference/source/core/input/InputBase/get_key_state.md) | キー押下状態マップ取得 |
 | [get_mouse_state](/D:/work/Project_Core/docs/reference/source/core/input/InputBase/get_mouse_state.md) | マウス押下状態マップ取得 |
 | [get_mouse_point](/D:/work/Project_Core/docs/reference/source/core/input/InputBase/get_mouse_point.md) | マウス座標取得 |
+| [get_mouse_wheel](/D:/work/Project_Core/docs/reference/source/core/input/InputBase/get_mouse_wheel.md) | ホイールの回転量取得 |
 
 ## サンプルコード
 
@@ -62,7 +64,7 @@ class DummyInput final : public InputBase {
 public:
     bool init() override { return true; }
     void update() override {
-        // key_state / mouse_state / mouse_point を更新する
+        // key_state / mouse_state / mouse_point / mouse_wheel を更新する
     }
 };
 ```

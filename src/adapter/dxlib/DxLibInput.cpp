@@ -96,6 +96,7 @@ void DxLibInput::update() {
         bool is_pressed = (mouse_input & mouse_map.dx_mouse) != 0;
         mouse_state[mouse_map.core_mouse] = is_pressed;
     }
+    mouse_wheel = GetMouseWheelRotVol();
 }
 
 } // namespace dxlib

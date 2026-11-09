@@ -24,12 +24,17 @@ public:
     auto get_mouse_point() const -> const MousePoint& {
         return mouse_point;
     }
+    auto get_mouse_wheel() const -> int {
+        return mouse_wheel;
+    }
 
 protected:
     std::unordered_map<Key, bool, KeyHash> key_state;
 
     MousePoint mouse_point;
     std::unordered_map<Mouse, bool, MouseHash> mouse_state;
+    // 前の update から回った量 (ノッチの数)。奥へ回すと正
+    int mouse_wheel = 0;
 };
 
 } // namespace input

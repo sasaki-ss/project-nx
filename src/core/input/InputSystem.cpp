@@ -75,6 +75,14 @@ auto InputSystem::get_mouse_point() -> std::optional<MousePoint> {
     return input_module->get_mouse_point();
 }
 
+auto InputSystem::get_mouse_wheel() -> std::optional<int> {
+    if (!input_module) {
+        return std::nullopt;
+    }
+
+    return input_module->get_mouse_wheel();
+}
+
 } // namespace input
 } // namespace core
 } // namespace nx

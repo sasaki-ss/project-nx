@@ -23,6 +23,7 @@ public:
     bool get_input(Mouse mouse, InputState state);
 
     std::optional<MousePoint> get_mouse_point();
+    std::optional<int> get_mouse_wheel();
 };
 
 }
@@ -55,6 +56,7 @@ Core
 | [get_input(Key, InputState)](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/get_input_key.md) | キー入力状態問い合わせ |
 | [get_input(Mouse, InputState)](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/get_input_mouse.md) | マウス入力状態問い合わせ |
 | [get_mouse_point](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/get_mouse_point.md) | マウス座標問い合わせ |
+| [get_mouse_wheel](/D:/work/Project_Core/docs/reference/source/core/input/InputSystem/get_mouse_wheel.md) | ホイールの回転量問い合わせ |
 
 ## サンプルコード
 
